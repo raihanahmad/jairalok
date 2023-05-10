@@ -19,6 +19,14 @@ a {
     cursor: pointer;
 }
 
+.btn-mobile {
+    display: none;
+}
+
+.btn-pc {
+    display: inline-block;
+}
+
 body,
 html {
     height: 100%;
@@ -98,7 +106,6 @@ body {
     position: relative;
     z-index: 1;
     float: right;
-    display: inline-block;
     border: none;
     font-size: 13px;
     text-transform: uppercase;
@@ -154,6 +161,14 @@ body {
 
     .shop-card {
         max-width: 400px;
+    }
+
+    .btn-mobile {
+        display: inline-block;
+    }
+
+    .btn-pc {
+        display: none;
     }
 }
 
