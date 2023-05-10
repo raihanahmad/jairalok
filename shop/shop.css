@@ -8,17 +8,8 @@
 }
 
 a {
-  display: inline-block;
   text-decoration: none;
   cursor: pointer;
-}
-
-.btn-mobile {
-  display: none;
-}
-
-.btn-pc {
-  display: inline-block;
 }
 
 body,
@@ -59,6 +50,12 @@ body {
   padding: 2rem 1.5rem;
   text-align: center;
   z-index: 2;
+}
+.shop-card .btn-mobile {
+  display: none;
+}
+.shop-card .btn-pc {
+  display: inline-block;
 }
 
 .title {
@@ -150,10 +147,10 @@ body {
   .shop-card {
     max-width: 400px;
   }
-  .btn-mobile {
+  .shop-card .btn-mobile {
     display: inline-block;
   }
-  .btn-pc {
+  .shop-card .btn-pc {
     display: none;
   }
 }

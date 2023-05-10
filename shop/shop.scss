@@ -14,18 +14,10 @@
 }
 
 a {
-    display: inline-block;
     text-decoration: none;
     cursor: pointer;
 }
 
-.btn-mobile {
-    display: none;
-}
-
-.btn-pc {
-    display: inline-block;
-}
 
 body,
 html {
@@ -64,6 +56,14 @@ body {
     padding: 2rem 1.5rem;
     text-align: center;
     z-index: 2;
+
+    .btn-mobile {
+        display: none;
+    }
+
+    .btn-pc {
+        display: inline-block;
+    }
 }
 
 .title {
@@ -161,15 +161,16 @@ body {
 
     .shop-card {
         max-width: 400px;
+
+        .btn-mobile {
+            display: inline-block;
+        }
+
+        .btn-pc {
+            display: none;
+        }
     }
 
-    .btn-mobile {
-        display: inline-block;
-    }
-
-    .btn-pc {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 450px) {
