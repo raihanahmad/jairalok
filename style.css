@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+img {
+  height: 100%;
+}
+
+body {
+  background-color: #FCCF2C;
+  position: relative;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  height: 5vw;
+  width: 5vw;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease-in-out, background 0.4s linear;
+  background: url("pointer.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.defaultCursor {
+  border-radius: 50%;
+  height: 1.5vw;
+  width: 1.5vw;
+  border: 1px solid #ffffff;
+  background-color: unset;
+  transform: scale(3) translate(-20%, -20%);
+  -webkit-clip-path: unset;
+  clip-path: unset;
+}
+
+.text-scroller-container {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.m-scroll {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 15vw;
+  overflow: hidden;
+  z-index: 1;
+}
+.m-scroll__title {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  white-space: nowrap;
+  transform: scale(2);
+  transition: all 1s ease;
+}
+.m-scroll__title > div {
+  display: flex;
+}
+.m-scroll__title h1 {
+  font-family: "Poiret One", cursive;
+  text-shadow: -0.07vw 0.07vw 0 #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 4vw;
+  color: black;
+  transition: all 2s ease;
+}
+.m-scroll__title span {
+  text-decoration: none;
+  color: black;
+}
+.m-scroll__title span:hover {
+  -webkit-text-stroke: 0.1vw black;
+  color: transparent;
+}
+
+.m-scroll-right .scroller-text {
+  -webkit-animation: scrollText 20s infinite linear;
+          animation: scrollText 20s infinite linear;
+}
+
+.m-scroll-left .scroller-text {
+  -webkit-animation: scrollTextLeft 20s infinite linear;
+          animation: scrollTextLeft 20s infinite linear;
+}
+.m-scroll-left .scroller-text h1 {
+  text-shadow: 0.07vw 0.07vw 0 #fff;
+}
+
+/*div:hover {
+  animation-play-state: paused;
+}*/
+@-webkit-keyframes scrollText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(25.2%);
+  }
+}
+@keyframes scrollText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(25.2%);
+  }
+}
+@-webkit-keyframes scrollTextLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-25.2%);
+  }
+}
+@keyframes scrollTextLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-25.2%);
+  }
+}
+.showcase {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.showcase h1 {
+  font-size: 20vw;
+  font-family: "Londrina Solid", cursive;
+  margin-right: 1vw;
+}
+.showcase img {
+  height: 90%;
+}
+.showcase .social-media {
+  margin-left: 1vw;
+}
+.showcase .social-media li {
+  list-style: none;
+}
+.showcase .social-media li a {
+  border: 0.1vw solid black;
+  font-size: 1.3vw;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Orbitron", sans-serif;
+  display: inline-block;
+  margin-bottom: 1vw;
+  background: white;
+  color: black;
+  padding: 0.5vw 1vw;
+  text-decoration: none;
+  box-shadow: 0.2vw 0.2vw 0 black;
+  transition: all 0.5s ease;
+}
+.showcase .social-media li a:hover {
+  box-shadow: 0 0 0 black;
+}/*# sourceMappingURL=style.css.map */
