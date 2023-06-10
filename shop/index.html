@@ -54,38 +54,89 @@
 
             <div class="cta">
                 <div class="price">৳ 499</div>
-                <a class="btn btn-pc" href="https://www.facebook.com/messages/t/105434495788477">Order Now<span
-                        class="bg"></span></a>
-                <a class="btn btn-mobile" href="https://www.facebook.com/jairalokraihanofficial/">Order Now<span
-                        class="bg"></span></a>
-                <!-- <button class="btn">Order Now<span class="bg"></span></button> -->
+                <!-- <a class="btn btn-pc" href="https://www.facebook.com/messages/t/105434495788477">Order Now<span
+                        class="bg"></span></a> -->
+                <!-- <a class="btn btn-mobile" href="https://www.facebook.com/jairalokraihanofficial/">Order Now<span
+                        class="bg"></span></a> -->
+                <button id="myBtn" class="btn btn-pc">Order Now<span class="bg"></span></button>
+                <button id="myBtn" class="btn btn-mobile">Order Now<span class="bg"></span></button>
             </div>
-        </div>
-    </div>
 
-    <!-- <script src="shop.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            loop: true,
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">×</span>
+                    <p>Fill Up Input Fields</p>
+                    <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                        <div class="single-form">
+                            <input type="text" name="name" placeholder="Name">
+                        </div> 
+                        <div class="single-form">
+                            <input type="number" name="number" placeholder="Number">
+                        </div> 
+                        <div class="single-form">
+                            <textarea name="address" placeholder="Address"></textarea>
+                        </div> 
+                        <p class="form-message"></p>
+                        <div class="single-form">
+                            <button class="button-3"  type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
 
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
+            </div>
 
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
+            <!-- <script src="shop.js"></script> -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+            <script>
+                const swiper = new Swiper('.swiper', {
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    loop: true,
+
+                    // If we need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+                // Modal 
+                // Get the modal
+                var modal = document.getElementById('myModal');
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks the button, open the modal
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
 </body>
 
 </html>
