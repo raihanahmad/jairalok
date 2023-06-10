@@ -4,8 +4,7 @@
 *::after {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
@@ -21,10 +20,8 @@ html {
 
 .container {
   position: relative;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #fccf2b), color-stop(50.1%, #000000));
   background: linear-gradient(0deg, #fccf2b 50%, #000000 50.1%);
   height: 100vh;
-  display: -ms-grid;
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -37,34 +34,23 @@ html {
 
 .swiper {
   max-width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 
 body {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #fccf2b), color-stop(50.1%, #000000));
   background: linear-gradient(0deg, #fccf2b 50%, #000000 50.1%);
 }
 
 .shop-card {
   max-width: 450px;
   background: white;
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 2rem 1.5rem;
   text-align: center;
   z-index: 2;
   position: relative;
-}
-
-.shop-card .btn-mobile {
-  display: none;
-}
-
-.shop-card .btn-pc {
-  display: inline-block;
 }
 
 .title {
@@ -86,7 +72,6 @@ body {
 .cta {
   padding: 20px 20px 5px;
 }
-
 .cta::after {
   content: "";
   display: table;
@@ -98,7 +83,6 @@ body {
   color: #000000;
   font-size: 2rem;
   font-weight: 800;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
   font-family: "Montserrat Alternates", sans-serif;
 }
@@ -113,7 +97,6 @@ body {
   text-transform: uppercase;
   padding: 12px 18px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   line-height: 0.5s;
   background: none;
@@ -123,7 +106,6 @@ body {
   color: white;
   background: #000000;
 }
-
 .btn:hover {
   color: #eaeaea !important;
   border: 1px solid transparent !important;
@@ -140,16 +122,13 @@ body {
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 .swiper .swiper-button-prev:hover,
 .swiper .swiper-button-next:hover {
   background: black;
   color: #fccf2b;
 }
-
 .swiper .swiper-button-prev::after,
 .swiper .swiper-button-next::after {
   --swiper-navigation-size: 20px;
@@ -167,14 +146,12 @@ body {
   background-color: #2ea44f;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  -webkit-box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
-          box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -183,18 +160,15 @@ body {
   text-align: center;
   text-decoration: none;
   -moz-user-select: none;
-   -ms-user-select: none;
        user-select: none;
   -webkit-user-select: none;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   outline: none;
 }
 
@@ -203,8 +177,7 @@ body {
 }
 
 .button-3:focus {
-  -webkit-box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
-          box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+  box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
   outline: none;
 }
 
@@ -217,8 +190,7 @@ body {
 
 .button-3:active {
   background-color: #298e46;
-  -webkit-box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
-          box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
+  box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }
 
 /* The Modal (background) */
@@ -239,7 +211,7 @@ body {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
@@ -272,41 +244,26 @@ body {
 #contact-form .single-form {
   text-align: left;
 }
-
-#contact-form input[type=text], #contact-form input[type=number] {
+#contact-form input[type=text],
+#contact-form input[type=number] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 #contact-form textarea {
   width: 100%;
   height: 80px;
   padding: 12px 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
-}
-
-@media screen and (max-width: 500px) {
-  .shop-card {
-    max-width: 400px;
-  }
-  .shop-card .btn-mobile {
-    display: inline-block;
-  }
-  .shop-card .btn-pc {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 450px) {
@@ -336,20 +293,17 @@ body {
     clear: both;
   }
 }
-
 @media screen and (max-width: 400px) {
   .shop-card {
     max-width: 340px;
   }
 }
-
 @media screen and (max-width: 375px) {
   .shop-card {
     max-width: 300px;
     padding: 1rem;
   }
 }
-
 @media screen and (max-width: 335px) {
   .shop-card {
     max-width: 250px;
@@ -377,10 +331,8 @@ body {
     clear: both;
   }
 }
-
 @media screen and (max-width: 285px) {
   .shop-card {
     max-width: 200px;
   }
-}
-/*# sourceMappingURL=shop.css.map */
+}/*# sourceMappingURL=shop.css.map */
