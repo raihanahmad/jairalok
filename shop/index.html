@@ -63,15 +63,18 @@
                 <div class="modal-content">
                     <span class="close">×</span>
                     <p>Fill Up Input Fields</p>
-                    <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                    <form id="contact-form" name="contact" method="POST">
                         <div class="single-form">
-                            <input type="text" name="name" placeholder="Name">
+                            <input id="name" type="text" name="name" placeholder="Name">
                         </div>
                         <div class="single-form">
-                            <input type="number" name="number" placeholder="Number">
+                            <input id="number" type="number" name="number" placeholder="Number">
                         </div>
                         <div class="single-form">
-                            <textarea name="address" placeholder="Address"></textarea>
+                            <textarea id="address" name="address" placeholder="Address"></textarea>
+                        </div>
+                        <div class="single-form">
+                            <textarea id="message" name="message" placeholder="Your Message"></textarea>
                         </div>
                         <p class="form-message"></p>
                         <div class="single-form">
@@ -131,6 +134,69 @@
                         modal.style.display = "none";
                     }
                 }
+            </script>
+            <script>
+                function submitToSlack(event) {
+                    event.preventDefault(); // Prevent the default form submission behavior
+
+                    var nameInput = document.getElementById('name');
+                    var numberInput = document.getElementById('number');
+                    var addressInput = document.getElementById('address');
+                    var messageInput = document.getElementById('message');
+
+                    // Create a JavaScript object with the form data
+                    var payload = {
+                        "blocks": [
+                            {
+                                "type": "header",
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "A New Product Inquiry Submitted",
+                                    "emoji": true
+                                }
+                            },
+                            {
+                                "type": "section",
+                                "fields": [
+                                    {
+                                        "type": "mrkdwn",
+                                        "text": `*Name:*\n${nameInput.value}`
+                                    },
+                                    {
+                                        "type": "mrkdwn",
+                                        "text": `*Number:*\n${numberInput.value}`
+                                    },
+                                    {
+                                        "type": "mrkdwn",
+                                        "text": `*Address:*\n${addressInput.value}`
+                                    },
+                                    {
+                                        "type": "mrkdwn",
+                                        "text": `*Message:*\n${messageInput.value}`
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+
+                    fetch('https://hooks.slack.com/services/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', {
+                        method: 'POST',
+                        headers: {
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                        .then(response => {
+                            document.getElementById('myModal').style.display = 'none';
+                            alert('Your order inquiry have been submitted. We will contact you soon.')
+                        })
+                        .catch(error => {
+                            alert('Something went wrong while submitting.')
+                        });
+                }
+
+                var form = document.getElementById('contact-form');
+                form.addEventListener('submit', submitToSlack);
+
             </script>
 </body>
 
