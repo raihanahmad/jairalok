@@ -179,10 +179,10 @@
                         ]
                     };
 
-                    fetch('https://hooks.slack.com/services/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', {
+                    fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
                         method: 'POST',
                         headers: {
-                            // 'Content-type': 'application/json'
+                            'Content-type': 'application/json'
                         },
                         body: JSON.stringify(payload)
                     })
