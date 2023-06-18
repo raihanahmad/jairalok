@@ -83,7 +83,9 @@
                         </div>
                         <p class="form-message"></p>
                         <div class="single-form">
-                            <button class="button-3" type="submit">Order Request</button>
+                            <button id="display-none" class="button-3 " type="submit">Order Request</button>
+                            <button id="loader" class="button-3 ">Order
+                                Requesting...</button>
                         </div>
                     </form>
                 </div>
@@ -157,7 +159,9 @@
                         </div>
                         <p class="form-message"></p>
                         <div class="single-form">
-                            <button class="button-3" type="submit">Order Request</button>
+                            <button id="display-none-two" class="button-3 " type="submit">Order Request</button>
+                            <button id="loader-two" class="button-3 ">Order
+                                Requesting...</button>
                         </div>
                     </form>
                 </div>
@@ -167,6 +171,7 @@
     </div>
     <!-- <script src="shop.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
             autoplay: {
@@ -235,13 +240,14 @@
         }
     </script>
     <script>
-        function submitToSlack(event) {
+        async function submitToSlack(event) {
             event.preventDefault(); // Prevent the default form submission behavior
 
             var nameInput = document.getElementById('name');
             var numberInput = document.getElementById('number');
             var addressInput = document.getElementById('address');
             var messageInput = document.getElementById('message');
+            var displayNone = document.getElementById('display-none');
 
             // Create a JavaScript object with the form data
             var payload = {
@@ -278,30 +284,44 @@
                 ]
             };
 
-            fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-                .then(response => {
-                    document.getElementById('myModal').style.display = 'none';
-                    alert('Your order inquiry have been submitted. We will contact you soon.')
-                })
-                .catch(error => {
-                    alert('Something went wrong while submitting.')
+            try {
+                document.getElementById('loader').style.display = 'block';
+                displayNone.style.display = 'none';
+                const response = await fetch(
+                    'https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 });
+
+                if (response.ok) {
+                    document.getElementById('myModal').style.display = 'none';
+                    swal("Good job!", "Your order inquiry has been submitted. We will contact you soon.",
+                        "success");
+
+                } else {
+                    throw new Error('Something went wrong while submitting.');
+                }
+            } catch (error) {
+                alert('Something went wrong while submitting.');
+            } finally {
+                document.getElementById('loader').style.display = 'none';
+                displayNone.style.display = 'block';
+            }
+
         }
 
         // From Two
-        function submitToSlackTwo(event) {
+        async function submitToSlackTwo(event) {
             event.preventDefault(); // Prevent the default form submission behavior
 
             var nameInput = document.getElementById('nameFromTwo');
             var numberInput = document.getElementById('numberFromTwo');
             var addressInput = document.getElementById('addressFromTwo');
             var messageInput = document.getElementById('messageFromTwo');
+            var displayNoneTwo = document.getElementById('display-none-two');
 
             // Create a JavaScript object with the form data
             var payload = {
@@ -338,20 +358,31 @@
                 ]
             };
 
-            fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-                .then(response => {
-                    document.getElementById('myModal-two').style.display = 'none';
-                    alert('Your order inquiry have been submitted. We will contact you soon.')
-                })
-                .catch(error => {
-                    alert('Something went wrong while submitting.')
+            try {
+                document.getElementById('loader-two').style.display = 'block';
+                displayNoneTwo.style.display = 'none';
+                const response = await fetch(
+                    'https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 });
+
+                if (response.ok) {
+                    document.getElementById('myModal').style.display = 'none';
+                    swal("Good job!", "Your order inquiry has been submitted. We will contact you soon.",
+                        "success");
+                } else {
+                    throw new Error('Something went wrong while submitting.');
+                }
+            } catch (error) {
+                alert('Something went wrong while submitting.');
+            } finally {
+                document.getElementById('loader-two').style.display = 'none';
+                displayNoneTwo.style.display = 'block';
+            }
         }
         var form = document.getElementById('contact-form');
         form.addEventListener('submit', submitToSlack);
