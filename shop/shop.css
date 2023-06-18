@@ -22,8 +22,10 @@ html {
   position: relative;
   background: linear-gradient(0deg, #fccf2b 50%, #000000 50.1%);
   height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
   overflow: hidden;
 }
@@ -270,6 +272,38 @@ body {
   cursor: pointer;
 }
 
+/* The Close Two Button */
+.close-two {
+  position: absolute;
+  z-index: 5;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+.close-two::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #fccf2b;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  top: -2.2rem;
+  right: -2.2rem;
+}
+.close-two svg {
+  width: 22px;
+  fill: black;
+}
+.close-two:hover svg, .close-two:focus svg {
+  fill: #af0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #contact-form .single-form {
   text-align: left;
 }
@@ -300,7 +334,47 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+#contact-form-two .single-form {
+  text-align: left;
+}
+#contact-form-two input[type=text],
+#contact-form-two input,
+#contact-form-two input[type=number],
+#contact-form-two textarea {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  outline-color: #000000;
+}
+#contact-form-two input[type=text]:hover,
+#contact-form-two input:hover,
+#contact-form-two input[type=number]:hover,
+#contact-form-two textarea:hover {
+  border: 1px solid #000000;
+}
+#contact-form-two textarea {
+  height: 80px;
+  resize: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (max-width: 930px) {
+  .container {
+    height: 130vh;
+    flex-direction: column;
+    padding: unset;
+  }
+}
 @media screen and (max-width: 450px) {
+  .container {
+    height: 115vh;
+  }
   .shop-card {
     max-width: 365px;
   }
@@ -327,7 +401,7 @@ body {
     clear: both;
   }
   .modal {
-    height: unset;
+    height: 100%;
   }
   .modal-content {
     padding: 1.8rem;
@@ -349,6 +423,16 @@ body {
   .shop-card {
     max-width: 300px;
     padding: 1rem;
+  }
+}
+@media screen and (max-width: 375px) and (max-height: 860px) {
+  .container {
+    height: 130vh;
+  }
+}
+@media screen and (max-width: 375px) and (max-height: 600px) {
+  .container {
+    height: 150vh;
   }
 }
 @media screen and (max-width: 335px) {

@@ -24,11 +24,10 @@
     <div class="container bg">
         <div class="shop-card">
             <div class="title">
-                Jairalok Sunglass
+                HURRAY Sunglass
             </div>
             <div class="desc">
-                <!-- with signature -->
-                favorite one
+                Edition One
             </div>
 
             <div class="swiper">
@@ -90,121 +89,275 @@
                 </div>
 
             </div>
+        </div>
 
-            <!-- <script src="shop.js"></script> -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-            <script>
-                const swiper = new Swiper('.swiper', {
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
+        <div class="shop-card">
+            <div class="title">
+                Jairalok Sunglass
+            </div>
+            <div class="desc">
+                <!-- with signature -->
+                Edition Two
+            </div>
+
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="jk-3-v2.jpg" />
+                    </div>
+                    <div class="swiper-slide"><img src="jk-1-v2.jpg" />
+                    </div>
+                    <div class="swiper-slide"><img src="jk-2-v2.jpg" />
+                    </div>
+                    <div class="swiper-slide"><img src="jk-6-v2.jpg" />
+                    </div>
+                    <div class="swiper-slide"><img src="jk-5-v2.jpg" />
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+            </div>
+
+
+            <div class="cta">
+                <div class="price">৳ 650</div>
+                <button id="myBtn-two" class="btn">Order Now<span class="bg"></span></button>
+            </div>
+
+            <!-- The Modal -->
+            <div id="myModal-two" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close-two"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg></span>
+                    <p class="from-title">Order The Sunglass</p>
+                    <form id="contact-form-two" name="contact" method="POST">
+                        <div class="single-form">
+                            <input id="nameFromTwo" type="text" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="single-form">
+                            <input id="numberFromTwo" type="number" name="number" placeholder="Phone Number" required>
+                        </div>
+                        <div class="single-form">
+                            <textarea id="addressFromTwo" name="address" placeholder="Address" required></textarea>
+                        </div>
+                        <div class="single-form">
+                            <textarea id="messageFromTwo" name="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <p class="form-message"></p>
+                        <div class="single-form">
+                            <button class="button-3" type="submit">Order Request</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- <script src="shop.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Modal 
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the modal Two
+        var modalTwo = document.getElementById('myModal-two');
+
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the button two that opens the modal
+        var btnTwo = document.getElementById("myBtn-two");
+
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get the <span> element that closes the modal
+        var spanTwo = document.getElementsByClassName("close-two")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        // When the user clicks the button, open the modal
+        btnTwo.onclick = function () {
+            modalTwo.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks on <span> two (x), close the modal
+        spanTwo.onclick = function () {
+            modalTwo.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function submitToSlack(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            var nameInput = document.getElementById('name');
+            var numberInput = document.getElementById('number');
+            var addressInput = document.getElementById('address');
+            var messageInput = document.getElementById('message');
+
+            // Create a JavaScript object with the form data
+            var payload = {
+                "blocks": [
+                    {
+                        "type": "header",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "Sunglass Edition One (HURRAY)",
+                            "emoji": true
+                        }
                     },
-                    loop: true,
-
-                    // If we need pagination
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true
-                    },
-
-                    // Navigation arrows
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                });
-
-                // Modal 
-                // Get the modal
-                var modal = document.getElementById('myModal');
-
-                // Get the button that opens the modal
-                var btn = document.getElementById("myBtn");
-
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-                // When the user clicks the button, open the modal
-                btn.onclick = function () {
-                    modal.style.display = "block";
-                }
-
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function () {
-                    modal.style.display = "none";
-                }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            </script>
-            <script>
-                function submitToSlack(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
-
-                    var nameInput = document.getElementById('name');
-                    var numberInput = document.getElementById('number');
-                    var addressInput = document.getElementById('address');
-                    var messageInput = document.getElementById('message');
-
-                    // Create a JavaScript object with the form data
-                    var payload = {
-                        "blocks": [
+                    {
+                        "type": "section",
+                        "fields": [
                             {
-                                "type": "header",
-                                "text": {
-                                    "type": "plain_text",
-                                    "text": "A New Product Inquiry Submitted",
-                                    "emoji": true
-                                }
+                                "type": "mrkdwn",
+                                "text": `*Name:*\n${nameInput.value}`
                             },
                             {
-                                "type": "section",
-                                "fields": [
-                                    {
-                                        "type": "mrkdwn",
-                                        "text": `*Name:*\n${nameInput.value}`
-                                    },
-                                    {
-                                        "type": "mrkdwn",
-                                        "text": `*Number:*\n${numberInput.value}`
-                                    },
-                                    {
-                                        "type": "mrkdwn",
-                                        "text": `*Address:*\n${addressInput.value}`
-                                    },
-                                    {
-                                        "type": "mrkdwn",
-                                        "text": `*Message:*\n${messageInput.value}`
-                                    }
-                                ]
+                                "type": "mrkdwn",
+                                "text": `*Number:*\n${numberInput.value}`
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Address:*\n${addressInput.value}`
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Message:*\n${messageInput.value}`
                             }
                         ]
-                    };
+                    }
+                ]
+            };
 
-                    fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
-                        method: 'POST',
-                        headers: {
-                            'Content-type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                        .then(response => {
-                            document.getElementById('myModal').style.display = 'none';
-                            alert('Your order inquiry have been submitted. We will contact you soon.')
-                        })
-                        .catch(error => {
-                            alert('Something went wrong while submitting.')
-                        });
-                }
+            fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                    document.getElementById('myModal').style.display = 'none';
+                    alert('Your order inquiry have been submitted. We will contact you soon.')
+                })
+                .catch(error => {
+                    alert('Something went wrong while submitting.')
+                });
+        }
 
-                var form = document.getElementById('contact-form');
-                form.addEventListener('submit', submitToSlack);
+        // From Two
+        function submitToSlackTwo(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
 
-            </script>
+            var nameInput = document.getElementById('nameFromTwo');
+            var numberInput = document.getElementById('numberFromTwo');
+            var addressInput = document.getElementById('addressFromTwo');
+            var messageInput = document.getElementById('messageFromTwo');
+
+            // Create a JavaScript object with the form data
+            var payload = {
+                "blocks": [
+                    {
+                        "type": "header",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "Sunglass Edition Two",
+                            "emoji": true
+                        }
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Name:*\n${nameInput.value}`
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Number:*\n${numberInput.value}`
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Address:*\n${addressInput.value}`
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": `*Message:*\n${messageInput.value}`
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            fetch('https://jk-shop-backend-fcjuh3h5uq-uc.a.run.app/api/v1/flag-content', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                    document.getElementById('myModal-two').style.display = 'none';
+                    alert('Your order inquiry have been submitted. We will contact you soon.')
+                })
+                .catch(error => {
+                    alert('Something went wrong while submitting.')
+                });
+        }
+        var form = document.getElementById('contact-form');
+        form.addEventListener('submit', submitToSlack);
+
+        // Two From
+        var form = document.getElementById('contact-form-two');
+        form.addEventListener('submit', submitToSlackTwo);
+    </script>
 </body>
 
 </html>
