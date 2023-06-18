@@ -46,7 +46,7 @@ body {
   max-width: 450px;
   background: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
   z-index: 2;
@@ -143,7 +143,7 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #2ea44f;
+  background-color: #000000;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
@@ -151,11 +151,11 @@ body {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
+  font-family: "Montserrat Alternates", sans-serif !important;
+  font-size: 1rem;
   line-height: 20px;
-  padding: 6px 16px;
+  text-transform: uppercase;
+  padding: 14px 20px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -165,6 +165,9 @@ body {
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
+  width: 100%;
+  margin-top: 0.6rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
@@ -173,7 +176,7 @@ body {
 }
 
 .button-3:hover {
-  background-color: #2c974b;
+  background-color: #005117;
 }
 
 .button-3:focus {
@@ -193,15 +196,12 @@ body {
   box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }
 
-/* The Modal (background) */
 .modal {
   display: none;
   /* Hidden by default */
   position: absolute;
   /* Stay in place */
   z-index: 1;
-  /* Sit on top */
-  padding-top: 5rem;
   /* Location of the box */
   left: 0;
   top: 0;
@@ -210,33 +210,62 @@ body {
   height: 100%;
   /* Full height */
   overflow: auto;
+  overflow-x: hidden;
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+  width: 100%;
+  background-color: #fefefe;
+  border-radius: 1rem;
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  position: relative;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 100%;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-content .from-title {
+  font-size: 2rem;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
-  float: right;
+  position: absolute;
+  z-index: 5;
+  top: 0.5rem;
+  right: 1rem;
   font-size: 28px;
   font-weight: bold;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
 }
-
-.close:hover,
-.close:focus {
-  color: #000;
+.close::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #fccf2b;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  top: -2.2rem;
+  right: -2.2rem;
+}
+.close svg {
+  width: 22px;
+  fill: black;
+}
+.close:hover svg, .close:focus svg {
+  fill: #af0000;
   text-decoration: none;
   cursor: pointer;
 }
@@ -245,25 +274,30 @@ body {
   text-align: left;
 }
 #contact-form input[type=text],
-#contact-form input[type=number] {
+#contact-form input,
+#contact-form input[type=number],
+#contact-form textarea {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 14px 20px;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  outline-color: #000000;
+}
+#contact-form input[type=text]:hover,
+#contact-form input:hover,
+#contact-form input[type=number]:hover,
+#contact-form textarea:hover {
+  border: 1px solid #000000;
 }
 #contact-form textarea {
-  width: 100%;
   height: 80px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
   resize: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media screen and (max-width: 450px) {
@@ -291,6 +325,19 @@ body {
     content: "";
     display: table;
     clear: both;
+  }
+  .modal {
+    height: unset;
+  }
+  .modal-content {
+    padding: 1.8rem;
+    height: 120%;
+  }
+  .modal-content .from-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 1rem;
   }
 }
 @media screen and (max-width: 400px) {
